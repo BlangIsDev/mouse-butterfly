@@ -13,9 +13,18 @@ document.addEventListener("keydown", (e)=>{
         velY = -10
     }else if(e.code === "KeyD"){
         flyX += 5
-        fly.style.top = flyX + "px";
+        fly.style.left = flyX + "px";
     }else if(e.code === "KeyA"){
         flyX -= 5
         fly.style.left = flyX + "px";
     }
 })
+
+function gameloop(){
+    velY += grav;
+    flyY += velY;
+
+    fly.style.top = flyY + "px";
+    requestAnimationFrame(gameloop);
+}
+gameloop()
