@@ -1,0 +1,8 @@
+fly{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: navy;
+    border: solid 10px black;
+    position: absolute;
+}
