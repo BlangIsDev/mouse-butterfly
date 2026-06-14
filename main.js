@@ -2,34 +2,20 @@ console.log("Why are you looking here buddy?");
 
 /*vars*/
 const fly = document.querySelector(".fly");
-let mouseX;
-let mouseY;
-let on = false;
+let flyX = 0;
+let flyY = 0;
+let velY = 0;
+const grav = 0.5;
 
-/*mouse move and update mouse position*/
-document.addEventListener("mousemove", (e)=>{
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-})
-
-/*space toggle*/
+/*wasd movement*/
 document.addEventListener("keydown", (e)=>{
-    if(e.code === "Space"){
-        e.preventDefault;
-        on = !on;
-        if(on){
-            animate();
-        }
+    if(e.code === "KeyW"){
+        velY = -10
+    }else if(e.code === "KeyD"){
+        flyX += 5
+        fly.style.top = flyX + "px";
+    }else if(e.code === "KeyA"){
+        flyX -= 5
+        fly.style.left = flyX + "px";
     }
 })
-
-/*move div to mouse var position*/
-function animate(){
-    if (!on){
-        return;
-    }
-
-    fly.style.left = mouseX + "px";
-    fly.style.top = mouseY + "px";
-    requestAnimationFrame(animate);
-}
