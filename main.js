@@ -1,30 +1,46 @@
 console.log("Why are you looking here buddy?");
 
-/*vars*/
-const fly = document.querySelector(".fly");
-let flyX = 0;
-let flyY = 0;
+/* vars */
+const move = document.querySelector(".move");
+let moveX = 0;
+let moveY = 0;
 let velY = 0;
 const grav = 0.5;
+const speed = 5;
+const jumpStrength = 10;
 
-/*wasd movement*/
-document.addEventListener("keydown", (e)=>{
-    if(e.code === "KeyW"){
-        velY = -10
-    }else if(e.code === "KeyD"){
-        flyX += 5
-        fly.style.left = flyX + "px";
-    }else if(e.code === "KeyA"){
-        flyX -= 5
-        fly.style.left = flyX + "px";
+/* wasd movement */
+document.addEventListener("keydown", (e) => {
+    if (e.code === "KeyW") {
+        velY = -jumpStrength;
+    } else if (e.code === "KeyD") {
+        moveX += speed;
+    } else if (e.code === "KeyA") {
+        moveX -= speed;
     }
-})
+});
 
-function gameloop(){
+function gameloop() {
     velY += grav;
-    flyY -= velY;
+    moveY += velY;
 
-    fly.style.top = flyY + "px";
+    if (moveX < 0) moveX = 0;
+    if (moveY < 0) {
+        moveY = 0;
+        velY = 0;
+    }
+
+    const maxX = window.innerWidth - move.offsetWidth;
+    const maxY = window.innerHeight - move.offsetHeight;
+
+    if (moveX > maxX) moveX = maxX;
+    if (moveY > maxY) {
+        moveY = maxY;
+        velY = 0;
+    }
+
+    move.style.left = moveX + "px";
+    move.style.top = moveY + "px";
     requestAnimationFrame(gameloop);
 }
-gameloop()
+gameloop();
