@@ -22,7 +22,7 @@ document.addEventListener("keydown", (e)=>{
 
 function gameloop(){
     velY += grav;
-    flyY += velY;
+    flyY -= velY;
 
     fly.style.top = flyY + "px";
     requestAnimationFrame(gameloop);
