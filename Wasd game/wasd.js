@@ -6,12 +6,12 @@ let moveX = 0;
 let moveY = 0;
 let velY = 0;
 const grav = 0.5;
-const speed = 5;
-const jumpStrength = 10;
+const speed = 10;
+const jumpStrength = 50;
 
 /* wasd movement */
 document.addEventListener("keydown", (e) => {
-    if (e.code === "KeyW") {
+    if (e.code === "KeySpace") {
         velY = -jumpStrength;
     } else if (e.code === "KeyD") {
         moveX += speed;
