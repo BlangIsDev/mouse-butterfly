@@ -1,2 +1,0 @@
-# Minigames
-hope it works!!
