@@ -1,2 +1,2 @@
-# mouse-butterfly
+# Minigames
 hope it works!!
