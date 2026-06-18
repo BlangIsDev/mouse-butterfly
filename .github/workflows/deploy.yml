@@ -30,7 +30,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # REPLACE "my-custom-folder" WITH YOUR ACTUAL FOLDER NAME BELOW:
-          path: './Main/' 
+          path: './' 
 
       - name: Deploy to GitHub Pages
         id: deployment
